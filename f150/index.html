@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>F150 - D3JS Experiment</title>
+<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +
+    ':35729/livereload.js?snipver=2"></' + 'script>')</script>
+<link rel="stylesheet" type="text/css" href="f150-style.css" />
+<body>
+    <div id="option">
+        <!-- <label>
+            <select onselect="pickGraph()">
+                <option id="mpg" value="Miles Per Gallon">Miles Per Gallon</option>
+                <option id="ppg" value="Price Per Gallon">Price Per Gallon</option>
+                <option id="odometer" value="Odometer">Odometer</option>
+                <option id="price" value="Price Per Fill Up">Price Per Fill Up</option>
+            </select>
+        </label>
+ -->
+
+        <input name="mpgBtn" type="button" id="mpg" value="Miles Per Gallon" onclick="pickGraph(this)" />
+        <input name="ppgBtn" type="button" id="ppg" value="Price Per Gallon" onclick="pickGraph(this)" />
+        <input name="odometerBtn" type="button" id="odometer" value="Odometer" onclick="pickGraph(this)" />
+        <input name="priceBtn" type="button" id="price" value="Price Per Fill Up" onclick="pickGraph(this)" />
+    </div>
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="f150.js"></script>
+
+</body>
+</html>

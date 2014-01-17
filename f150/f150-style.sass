@@ -1,0 +1,239 @@
+// Orange Scheme
+$lighest: #F3A518
+$light: #EE8A28
+$middle: #ED7121
+$dark: #BD550D
+$darkest: #3F4140
+
+// TF2 Blue
+$tf2-blue-darkGrey: #34302D
+$tf2-blue-lightGray: #6B6A65
+$tf2-blue-darkBlue: #395C78
+$tf2-blue-lightBlue: #768A88
+$tf2-blue-blue: #5B7A8C
+$tf2-blue-orange: #EF9849
+$tf2-blue-lightOrange: #F6B98A
+
+
+// TF2 Red
+$tf2-red-darkBrown: #462D26
+$tf2-red-lightBrown: #6A4535
+$tf2-red-darkRed: #9D312F
+$tf2-red-lightRed: #913A1E
+$tf2-red-red: #BD3B3B
+$tf2-red-orange: #F08149
+$tf2-red-lightOrange: #F5AD87
+
+$amtrakBlue: #1EA0D9
+$amtrakRed: #D9571E
+
+$green: #79A32B
+$white: #FFF
+$offWhite: #e0e0e0
+
+$darkOrange: #732E10
+$orange: #D9571E
+
+$darkAqua: #2B776B
+$lightAqua: #42A096
+
+$purple: #BE78EC
+$green: #A6EC78
+
+$codepenBlue: #34495e
+$codepenWhite: #ecf0f1
+
+$darkPrimary: $darkAqua
+$lightPrimary: $lightAqua
+
+@mixin uiBtn($lightColor, $color, $darkColor)
+  @include vendor(box-shadow, inset 0px 34px 0px -15px $lightColor) 
+  background-color: $color
+  border: 1px solid $darkColor
+  display: inline-block
+  color: #ffffff
+  font-family: arial
+  font-size: 15px
+  font-weight: bold
+  padding: 9px 10px
+  margin: 2px
+  text-decoration: none
+  text-shadow: 0px -1px 0px $darkColor
+  &:hover
+    background-color: $lightColor
+    cursor: pointer
+  &:active
+    position: relative
+    top: 1px
+
+@mixin vendor($name, $arg)
+  #{$name}: $arg
+  -webkit-#{$name}: $arg
+  -ms-#{$name}: $arg
+  -moz-#{$name}: $arg
+  -o-#{$name}: $arg
+
+body
+  font: 12px Arial
+  background: #181c18
+  color: #f3f3f3
+
+path 
+  stroke: $darkPrimary
+  stroke-width: 4
+  fill: none
+
+.area
+  fill: $lightPrimary
+  stroke-width: 0
+
+.areaBG
+  fill: #f3f3f3
+  stroke-width: 0
+
+.axis path,
+.axis line
+  fill: none
+  stroke: #f3f3f3
+  stroke-width: 1
+  shape-rendering: crispEdges
+
+td, th
+  text-align: center
+  padding: 5px
+  color: $offWhite
+  border: 1px solid $lightPrimary
+
+table
+  background: $darkPrimary
+  margin: 10px
+  // border: 2px solid
+  font-weight: bold
+  font-family: Arial
+  border-collapse: collapse
+
+
+div.tooltip
+  position: absolute
+  text-align: center
+  width: 120px
+  min-height: 30px
+  padding: 2px
+  font: 12px sans-serif
+  font-weight: bold
+  background: $lightPrimary
+  border: 3px
+  border-style: solid
+  border-radius: 8px
+  border-color: $darkPrimary
+  pointer-events: none
+  vertical-align: center
+
+svg
+  vertical-align: middle
+  background: rgba(255,255,255, 0.2)
+  box-shadow: inset 0 0 3px 0px #CECECE
+
+svg circle
+  fill: $offWhite
+  stroke-width: 3px
+  stroke: $darkPrimary
+  cursor: pointer
+
+svg circle:hover
+  stroke: $lightPrimary
+
+.grid .tick
+  stroke: $offWhite
+  opacity: 0.5
+
+.gird path
+  stroke-width: 0
+  opacity: 0.5
+
+@mixin box-sizing
+  -webkit-box-sizing: border-box
+  -moz-box-sizing: border-box
+  -ms-box-sizing: border-box
+  -o-box-sizing: border-box
+  box-sizing: border-box
+
+// select, option
+//   height: 36px
+//   font-size: 16px
+//   font-family: Arial
+//   font-weight: bold
+//   line-height: 48px
+//   background: $lightAqua
+//   dt
+//     width: 100%
+//     background: $codepenBlue
+//     @include box-sizing
+//     color: $codepenWhite
+//     padding: 8px
+//     position: relative
+//     &::after
+//       content:""
+//       position:absolute
+//       width:12px
+//       height:12px
+//       border-right:solid 1px #bdc3c7
+//       border-bottom: solid 1px #bdc3c7
+//       right:10px
+//       top:6px
+//       -webkit-transform:rotate(45deg)
+//       -moz-transform:rotate(45deg)
+//       -ms-transform:rotate(45deg)
+//       -o-transform:rotate(45deg)
+//       transform:rotate(45deg)
+
+input[type=button]
+  @include uiBtn($lightAqua, $darkAqua, $darkAqua)
+
+select
+  padding: 3px
+  margin:  0
+  min-width: 125px
+  background:  #2B776B
+  color: #e0e0e0
+  border: none
+  outline: none
+  display: inline-block
+  -webkit-appearance: none
+  -moz-appearance: none
+  appearance: none
+  cursor: pointer
+
+label
+  position: relative
+  background: #34495e
+label:after 
+  content: '<'
+  font: 11px "Consolas", monospace
+  color: #aaa
+  -webkit-transform: rotate(-90deg)
+  -moz-transform: rotate(0deg)
+  -ms-transform: rotate(0deg)
+  transform: rotate(0deg)
+  right: 8px
+  top: 2px
+  padding: 0 0 2px
+  /* border-bottom: 1px solid #ddd */
+  position: absolute
+  pointer-events: none
+
+label:before 
+  content: ''
+  -webkit-transform: rotate(90deg)
+  -moz-transform: rotate(0deg)
+  -ms-transform: rotate(0deg)
+  transform: rotate(0deg)
+  right: 0px
+  top: 0px
+  width: 20px
+  height: 100%
+  background:  #42A096
+  position: absolute
+  pointer-events: none
+  display: block
+
