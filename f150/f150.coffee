@@ -32,11 +32,6 @@ makeXAxis = () ->
 makeYAxis = () ->
   d3.svg.axis().scale(y0).orient("left")
 
-# tip = d3.tip()
-#   .attr("class", "tooltip")
-#   .offset([-10, 0])
-#   .html( (d) -> formatTime(d.date) + "<br />#{dataType}: " + d[globalDataType])
-
 valueLine = d3.svg.line()
   .x( (d) -> x(d.date) )
   .y( (d) -> y0(d[globalDataType]) )
@@ -98,56 +93,6 @@ counter = 0
   globalDataType = dataType
 
   updateGraph(dataType, title)
-
-mpgGraph = (data) ->
-  svg = d3.select("body").transition()
-
-  svg.select(".y.axis")
-    .duration(transitionTime)
-    .call(yAxisLeft)
-
-  svg.select(".yAxisTitle")
-    .text("Miles (US)")
-
-ppgGraph = (data) ->
-  svg = d3.select("body").transition()
-
-  svg.select(".y.axis")
-    .duration(transitionTime)
-    .call(yAxisLeftMoney)
-
-  svg.select(".yAxisTitle")
-    .text("US Dollars ($)")
-
-ppfGraph = (data) ->
-  svg = d3.select("body").transition()
-
-  svg.select(".y.axis")
-    .duration(transitionTime)
-    .call(yAxisLeftMoney)
-
-  svg.select(".yAxisTitle")
-    .text("US Dollars ($)")
-
-fuelGraph = (data) ->
-  svg = d3.select("body").transition()
-
-  svg.select(".y.axis")
-    .duration(transitionTime)
-    .call(yAxisLeft)
-
-  svg.select(".yAxisTitle")
-    .text("US Dollars ($)")
-
-odometerGraph = (data) ->
-  svg = d3.select("body").transition()
-
-  svg.select(".y.axis")
-    .duration(transitionTime)
-    .call(yAxisLeft)
-
-  svg.select(".yAxisTitle")
-    .text("Miles (US)")
 
 updateGraph = (dataType, title) ->
   d3.csv "data/f150.csv", (error, data) ->
